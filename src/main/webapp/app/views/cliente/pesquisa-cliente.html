@@ -1,0 +1,15 @@
+<div data-ng-controller="PesquisaClienteController as vm">
+    <h2>Pesquisa de Clientes</h2>
+
+    <senai-grid id="gridClientes" 
+        provider="vm.clientes" 
+        enable-selection="true"
+        row-class="info">
+        <senai-grid-column property="nome">
+            Nome
+        </senai-grid-column>
+        <senai-grid-column property="cpf">
+            CPF
+        </senai-grid-column>
+    </senai-grid>
+</div>

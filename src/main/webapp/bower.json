@@ -1,0 +1,23 @@
+{
+  "name": "curso-angular",
+  "authors": [
+    "Cristiano <crist.borges05@gmail.com>"
+  ],
+  "description": "Curso de Angular",
+  "main": "index.html",
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "dependencies": {
+    "angular": "^1.6.0",
+    "angular-messages": "^1.6.0",
+    "angular-growl-v2": "^0.7.9",
+    "lodash": "^4.17.2",
+    "moment": "^2.17.1",
+    "font-awesome": "^4.7.0",
+    "angular-ui-router": "^0.3.2",
+    "angular-resource": "^1.6.0",
+    "angular-material": "1.1.0",
+    "angular-i18n": "^1.6.0"
+  }
+}

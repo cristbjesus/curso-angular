@@ -1,0 +1,52 @@
+<div>
+    <data-ng-transclude></data-ng-transclude>
+
+    <table class="table table-bordered table-striped">
+        <thead>
+            <th data-ng-if="!$ctrl.disableEdit || !$ctrl.disableRemove" 
+                data-ng-style="{'width': (12 + ($ctrl.disableEdit ? 0 : 21) + ($ctrl.disableRemove ? 0 : 21)) + 'px'}">
+            </th>
+            <th data-ng-repeat="column in $ctrl.columns track by $index"
+                data-ng-hide="column.hide"
+                data-ng-click="$ctrl.sort(column)" 
+                data-ng-style="{'width': column.width, 'text-align': column.headerAlign}">
+
+                <a href="" data-ng-if="!$ctrl.disableSort && !column.disableSort && column.property">
+                    <!--<i class="fa" ng-class="{'asc': 'fa-sort-asc', 'desc': 'fa-sort-desc', null: 'fa-sort'}[column.sortOrder]"></i>
+                    <i class="fa" ng-class="{'asc': 'fa-sort-asc', 'desc': 'fa-sort-desc', 'default': 'fa fa-sort'}[column.sortOrder || 'default']"></i>-->
+                    <i class="fa" data-ng-class="{'asc': 'fa-sort-asc', 'desc': 'fa-sort-desc'}[column.sortOrder] || 'fa-sort'"></i>
+                    <span data-ng-bind-html="column.description | unsafe"></span>
+                    <!--<span data-ng-bind="column.description"></span>-->
+                </a>
+            </th>
+        </thead>
+
+        <tbody>
+            <tr data-ng-repeat="item in $ctrl.provider track by item.id" 
+                data-ng-class="$ctrl.getRowClass($index)">
+                <td data-ng-if="!$ctrl.disableEdit || !$ctrl.disableRemove"
+                    style="text-align: center">
+                    <a href="" data-ng-if="!$ctrl.disableRemove"
+                        data-ng-click="$ctrl.remove($index)" title="Remover" 
+                        style="color: crimson">
+                        <i class="fa fa-remove"></i>
+                    </a>
+
+                    <span ng-if="!$ctrl.disableEdit && !$ctrl.disableRemove">&nbsp;</span>
+
+                    <a href="" data-ng-if="!$ctrl.disableEdit"
+                        data-ng-click="$ctrl.edit($index)" title="Editar">
+                        <i class="fa fa-pencil"></i>
+                    </a>
+                </td>
+
+                <td data-ng-repeat="column in $ctrl.columns track by $index" 
+                    data-ng-hide="column.hide"
+                    data-ng-click="$ctrl.selectRow($parent.$index, column)"
+                    style="word-wrap: break-word">
+                    <span ng-bind="$ctrl.getValue(item, column)"></span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

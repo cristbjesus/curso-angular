@@ -1,0 +1,11 @@
+src/main/webapp/bower_components
+src/main/webapp/node_modules
+src/main/webapp/build
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# Class Files #
+*.class

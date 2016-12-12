@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Curso de Angular</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link href="bower_components/angular-material/angular-material.css" rel="stylesheet" />
+    <link href="bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="bower_components/angular-growl-v2/build/angular-growl.min.css" rel="stylesheet" />
+
+    <script src="bower_components/lodash/dist/lodash.min.js"></script>
+    <script src="bower_components/moment/min/moment.min.js"></script>
+
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="/bower_components/angular-i18n/angular-locale_pt-br.js"></script>
+
+    <script src="bower_components/angular-aria/angular-aria.min.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="bower_components/angular-material/angular-material.min.js"></script>
+
+    <script src="bower_components/angular-resource/angular-resource.min.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.min.js"></script>
+    <script src="bower_components/angular-growl-v2/build/angular-growl.min.js"></script>
+
+    <!-- Filtros -->
+    <script src="app/filters/unsafe-filter.js"></script>
+
+    <!-- Diretivas -->
+    <script src="app/directives/grid/senai-grid-module.js"></script>
+    <script src="app/directives/grid/senai-grid.js"></script>
+    <script src="app/directives/grid/senai-grid-column.js"></script>
+
+    <script src="app/app.js"></script>
+    <script src="app/config.js"></script>
+
+    <!-- Index Controller -->
+    <script src="app/index.controller.js"></script>
+
+    <!-- Caso de uso Cliente -->
+    <script src="app/views/cliente/cliente.service.js"></script>
+    <script src="app/views/cliente/cadastro-cliente.controller.js"></script>
+    <script src="app/views/cliente/pesquisa-cliente.controller.js"></script>
+    <!-- Caso de uso Produto -->
+    <script src="app/views/produto/cadastro-produto.controller.js"></script>
+    <script src="app/views/produto/pesquisa-produto.controller.js"></script>
+</head>
+
+<body data-ng-app="app" ng-controller="IndexController as indexCtrl" ng-cloak>
+
+    <md-content class="md-padding">
+        <md-nav-bar md-selected-nav-item="indexCtrl.currentNavItem" nav-bar-aria-label="navigation links">
+            <md-nav-item md-nav-sref="cliente.pesquisa" name="pesquisaClientes">
+                Clientes
+            </md-nav-item>
+            <md-nav-item md-nav-sref="produto.pesquisa" name="pesquisaProdutos">
+                Produtos
+            </md-nav-item>
+        </md-nav-bar>
+        <div class="ext-content">
+            <ui-view/>
+        </div>
+    </md-content>
+
+</body>
+
+</html>
