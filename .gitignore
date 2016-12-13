@@ -9,3 +9,4 @@ src/main/webapp/build
 
 # Class Files #
 *.class
+/target/

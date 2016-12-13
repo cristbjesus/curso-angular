@@ -1,3 +1,4 @@
+br\org\senai\filter\AuthenticationFilter.class
 br\org\senai\rest\json\ObjectMapperContextResolver.class
 br\org\senai\rest\json\LocalDateSerializer.class
 br\org\senai\rest\JaxRsActivator.class
