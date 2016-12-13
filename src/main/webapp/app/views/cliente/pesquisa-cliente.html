@@ -1,26 +1,38 @@
 <div data-ng-controller="PesquisaClienteController as vm">
     <h2>Pesquisa de Clientes</h2>
-    
-    <md-table-container>
-        <table md-table md-row-select ng-model="vm.clientesSelecionados" md-progress="vm.promiseListarClientes">
-            <thead md-head>
-                <tr md-row>
-                    <th md-column>Nome</th>
-                    <th md-column>CPF</th>
-                    <th md-column>Data de Nascimento</th>
-                </tr>
-            </thead>
-            <tbody md-body>
-                 <tr md-row md-select="cliente" md-select-id="id" md-auto-select ng-repeat="cliente in vm.clientes">
-                    <td md-cell>{{cliente.nome}}</td>
-                    <td md-cell>{{cliente.cpf}}</td>
-                    <td md-cell>{{cliente.dataNascimento | date:'dd/MM/yyyy'}}</td>
-                </tr>
-            </tbody>
-        </table>
-    </md-table-container>
 
-    <data-senai-grid id="gridClientes" 
+    <md-card>
+        <md-toolbar class="md-table-toolbar">
+            <div class="md-toolbar-tools">
+                <h2>Clientes</h2>
+                <span flex></span>
+                <md-button class="md-raised" aria-label="Novo" ng-click="vm.irParaCadastro()">
+                    Novo
+                </md-button>
+            </div>
+        </md-toolbar>
+        
+        <md-table-container>
+            <table md-table md-row-select ng-model="vm.clientesSelecionados" md-progress="vm.promiseListarClientes">
+                <thead md-head>
+                    <tr md-row>
+                        <th md-column>Nome</th>
+                        <th md-column>CPF</th>
+                        <th md-column>Data de Nascimento</th>
+                    </tr>
+                </thead>
+                <tbody md-body>
+                    <tr md-row md-on-select="vm.onSelectCliente" md-select="cliente" md-select-id="id" md-auto-select ng-repeat="cliente in vm.clientes">
+                        <td md-cell>{{cliente.nome}}</td>
+                        <td md-cell>{{cliente.cpf}}</td>
+                        <td md-cell>{{cliente.dataNascimento | date:'dd/MM/yyyy'}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </md-table-container>
+    </md-card>
+
+    <!--<data-senai-grid id="gridClientes" 
         provider="vm.clientes" 
         enable-selection="true"
         row-class="info">
@@ -30,5 +42,5 @@
         <data-senai-grid-column property="cpf">
             CPF
         </data-senai-grid-column>
-    </data-senai-grid>
+    </data-senai-grid>-->
 </div>

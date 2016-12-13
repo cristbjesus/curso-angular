@@ -22,7 +22,7 @@
             }
         });
 
-    GridController.$inject = ['$parse', '$scope', '$filter', '$attrs'];
+    /* @ngAnnotate */
     function GridController($parse, $scope, $filter, $attrs) {
         var $ctrl = this;
 

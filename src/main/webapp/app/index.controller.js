@@ -1,5 +1,5 @@
-(function() {
-'use strict';
+(function () {
+    'use strict';
 
     angular
         .module('app')
@@ -8,7 +8,7 @@
     IndexController.$inject = [];
     function IndexController() {
         var vm = this;
-        
+
 
         activate();
 

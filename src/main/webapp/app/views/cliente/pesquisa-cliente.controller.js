@@ -1,27 +1,54 @@
-(function() {
-'use strict';
+(function () {
+    'use strict';
 
     angular
         .module('app')
         .controller('PesquisaClienteController', PesquisaClienteController);
 
-    PesquisaClienteController.$inject = ['$rootScope', '$scope', 'ClienteResource', '$state'];
-    function PesquisaClienteController($rootScope, $scope, ClienteResource, $state) {
+    PesquisaClienteController.$inject = ['$scope', 'ClienteResource', '$state', '$mdBottomSheet'];
+    function PesquisaClienteController($scope, ClienteResource, $state, $mdBottomSheet) {
         var vm = this;
+
+        vm.irParaCadastro = irParaCadastro;
+        vm.onSelectCliente = onSelectCliente;
 
         activate();
 
         ////////////////
 
         function activate() {
-            $rootScope.pageClass = 'page-about';
-
             listarClientes();
 
-            $scope.$on('senaiGrid:edit:gridClientes', editarCliente);
-            $scope.$on('senaiGrid:remove:gridClientes', excluirCliente);
-
             vm.clientesSelecionados = [];
+        }
+
+        function irParaCadastro(cliente) {
+            var paramsPaginaCadastro = null;
+
+            if (cliente) {
+                paramsPaginaCadastro = { id: cliente.id }
+            }
+
+            $state.go('^.cadastro', paramsPaginaCadastro);
+        }
+
+        function onSelectCliente(cliente) {
+            $mdBottomSheet.show({
+                templateUrl: 'app/templates/bottom-sheet-list-template.html',
+                controller: 'GridClientesBottomSheetController',
+                controllerAs: 'bottomSheetCtrl'
+            }).then(function (clickedItem) {
+                switch (clickedItem.action) {
+                    case 'edit':
+                        irParaCadastro(cliente);
+                        break;
+                    case 'remove':
+                        ClienteResource.remove({ id: cliente.id }, listarClientes);
+                        break;
+                }
+            }).finally(function () {
+                vm.clientesSelecionados = [];
+            });
         }
 
         function listarClientes() {
@@ -31,16 +58,6 @@
             // });
             vm.clientes = ClienteResource.query();
             vm.promiseListarClientes = vm.clientes.$promise;
-        }
-
-        function editarCliente(event, data) {
-            var cliente = data.item;
-            $state.go('^.cadastro', {id: cliente.id});
-        }
-
-        function excluirCliente(event, data) {
-            var cliente = data.item;
-            ClienteResource.remove({id: cliente.id}, listarClientes);
         }
     }
 })();

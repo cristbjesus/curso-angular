@@ -1,0 +1,31 @@
+{
+  "name": "curso-angular",
+  "version": "1.0.0",
+  "description": "Curso de Angular",
+  "main": "index.html",
+  "dependencies": {
+    "matchdep": "^1.0.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.5.3",
+    "grunt": "^1.0.1",
+    "grunt-cleanempty": "^1.0.4",
+    "grunt-contrib-clean": "^0.7.0",
+    "grunt-contrib-concat": "^0.5.1",
+    "grunt-contrib-copy": "^0.8.2",
+    "grunt-contrib-cssmin": "^0.14.0",
+    "grunt-contrib-htmlmin": "^0.6.0",
+    "grunt-contrib-less": "^1.4.0",
+    "grunt-contrib-uglify": "^2.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-ng-annotate": "^1.0.1",
+    "grunt-processhtml": "^0.3.13",
+    "grunt-ngdocs": "^0.2.10",
+    "grunt-postcss": "^0.8.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Cristiano Borges",
+  "license": "ISC"
+}
