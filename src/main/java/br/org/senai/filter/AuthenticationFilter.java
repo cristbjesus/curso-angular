@@ -12,7 +12,7 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebFilter("/*")
+//@WebFilter("/*")
 public class AuthenticationFilter implements Filter {
 
 	private final static String LOGGED_USER = "loggedUser";
