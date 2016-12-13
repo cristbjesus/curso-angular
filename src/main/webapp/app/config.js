@@ -5,7 +5,7 @@
         .module('app')
         .config(config);
 
-    function config($stateProvider, $urlRouterProvider, $httpProvider) {
+    function config($stateProvider, $urlRouterProvider, $httpProvider, $mdDateLocaleProvider) {
         var stateCliente = {
             url: '/cliente',
             abstract: true,
@@ -52,7 +52,20 @@
         $urlRouterProvider.otherwise('/cliente/pesquisa');
 
         $httpProvider.defaults.transformResponse.push(responseTransformationFn);
-        $httpProvider.defaults.transformRequest.unshift(requestTransformationFn)
+        $httpProvider.defaults.transformRequest.unshift(requestTransformationFn);
+
+        $mdDateLocaleProvider.parseDate = mdDateLocaleParseDate;
+        $mdDateLocaleProvider.formatDate = mdDateLocaleFormatDate;
+    }
+
+    function mdDateLocaleParseDate(dateString) {
+        var m = moment(dateString, 'DD/MM/YYYY', true);
+        return m.isValid() ? m.toDate() : new Date(NaN);
+    }
+
+    function mdDateLocaleFormatDate(date) {
+        var m = moment(date);
+        return m.isValid() ? m.format('DD/MM/YYYY') : '';
     }
 
     function responseTransformationFn(data) {

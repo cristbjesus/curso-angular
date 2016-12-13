@@ -5,9 +5,10 @@
         .module('app')
         .controller('CadastroClienteController', CadastroClienteController);
 
-    CadastroClienteController.$inject = ['$stateParams', 'ClienteResource', '$state'];
-    function CadastroClienteController($stateParams, ClienteResource, $state) {
+    CadastroClienteController.$inject = ['$rootScope', '$stateParams', 'ClienteResource', '$state'];
+    function CadastroClienteController($rootScope, $stateParams, ClienteResource, $state) {
         var vm = this;
+
 
         vm.salvarCliente = salvarCliente;
 
@@ -16,6 +17,7 @@
         ////////////////
 
         function activate() {
+            $rootScope.pageClass = 'page-home';
             consultarCliente();
         }
 

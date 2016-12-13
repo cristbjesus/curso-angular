@@ -1,6 +1,8 @@
+br\org\senai\filter\AuthenticationFilter.class
 br\org\senai\rest\json\ObjectMapperContextResolver.class
 br\org\senai\rest\json\LocalDateSerializer.class
 br\org\senai\rest\JaxRsActivator.class
 br\org\senai\rest\json\LocalDateDeserializer.class
 br\org\senai\usecase\cliente\Cliente.class
+br\org\senai\servlet\LoginServlet.class
 br\org\senai\usecase\cliente\ClienteRestFacade.class

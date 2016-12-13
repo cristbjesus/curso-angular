@@ -5,8 +5,8 @@
         .module('app')
         .controller('PesquisaClienteController', PesquisaClienteController);
 
-    PesquisaClienteController.$inject = ['$scope', 'ClienteResource', '$state'];
-    function PesquisaClienteController($scope, ClienteResource, $state) {
+    PesquisaClienteController.$inject = ['$rootScope', '$scope', 'ClienteResource', '$state'];
+    function PesquisaClienteController($rootScope, $scope, ClienteResource, $state) {
         var vm = this;
 
         activate();
@@ -14,9 +14,14 @@
         ////////////////
 
         function activate() {
+            $rootScope.pageClass = 'page-about';
+
             listarClientes();
+
             $scope.$on('senaiGrid:edit:gridClientes', editarCliente);
             $scope.$on('senaiGrid:remove:gridClientes', excluirCliente);
+
+            vm.clientesSelecionados = [];
         }
 
         function listarClientes() {
@@ -25,6 +30,7 @@
             //     url: '/url'
             // });
             vm.clientes = ClienteResource.query();
+            vm.promiseListarClientes = vm.clientes.$promise;
         }
 
         function editarCliente(event, data) {

@@ -8,6 +8,7 @@
         'ui.router',
         'ngResource',
         'senaiGridModule',
-        'ngAnimate'
+        'ngAnimate',
+        'md.data.table'
     ]);
 })();
