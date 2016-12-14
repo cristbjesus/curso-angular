@@ -11,10 +11,15 @@
     <link href="bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
     <link href="bower_components/angular-growl-v2/build/angular-growl.min.css" rel="stylesheet" />
     <link href="bower_components/angular-material-data-table/dist/md-data-table.min.css" rel="stylesheet" />
-    <!--<link href="app/css/style.css" rel="stylesheet" />-->
+
+    <!-- build:css app/css/style.min.css -->
+    <link href="app/css/style.css" rel="stylesheet" />
+    <!-- /build -->
 
     <script src="bower_components/lodash/dist/lodash.min.js"></script>
     <script src="bower_components/moment/min/moment.min.js"></script>
+
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
 
     <script src="bower_components/angular/angular.min.js"></script>
     <script src="bower_components/angular-i18n/angular-locale_pt-br.js"></script>
@@ -30,6 +35,7 @@
     <script src="bower_components/angular-messages/angular-messages.min.js"></script>
     <script src="bower_components/angular-growl-v2/build/angular-growl.min.js"></script>
 
+    <!-- build:js app/source-home.min.js -->
     <!-- Filtros -->
     <script src="app/filters/unsafe-filter.js"></script>
 
@@ -43,11 +49,13 @@
 
     <!-- Index Controller -->
     <script src="app/index.controller.js"></script>
+    <!-- /build -->
 
     <!-- Caso de uso Cliente -->
     <script src="app/views/cliente/cliente.service.js"></script>
     <script src="app/views/cliente/cadastro-cliente.controller.js"></script>
     <script src="app/views/cliente/pesquisa-cliente.controller.js"></script>
+    <script src="app/views/cliente/bottom-sheet/grid-clientes-bottom-sheet.controller.js"></script>
     <!-- Caso de uso Produto -->
     <script src="app/views/produto/cadastro-produto.controller.js"></script>
     <script src="app/views/produto/pesquisa-produto.controller.js"></script>
@@ -58,14 +66,14 @@
     <md-content class="md-padding">
         <md-nav-bar md-selected-nav-item="indexCtrl.currentNavItem" nav-bar-aria-label="navigation links">
             <md-nav-item md-nav-sref="cliente.pesquisa" name="pesquisaClientes">
-                Clientes
+                <i class="fa fa-user"></i> Clientes
             </md-nav-item>
             <md-nav-item md-nav-sref="produto.pesquisa" name="pesquisaProdutos">
-                Produtos
+                <i class="fa fa-shopping-basket"></i> Produtos
             </md-nav-item>
         </md-nav-bar>
         <div class="ext-content">
-            <div ui-view class="slide"></div>
+            <main ui-view></main>
         </div>
     </md-content>
 

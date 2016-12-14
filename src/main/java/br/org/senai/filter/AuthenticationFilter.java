@@ -12,7 +12,7 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-//@WebFilter("/*")
+@WebFilter("/*")
 public class AuthenticationFilter implements Filter {
 
 	private final static String LOGGED_USER = "loggedUser";
@@ -38,12 +38,13 @@ public class AuthenticationFilter implements Filter {
 		String requestURI = httpRequest.getRequestURI();
 		String contextPath = httpRequest.getContextPath() + "/";
 
-		if (loggedUser == null && !requestURI.endsWith("authc") && !requestURI.endsWith("index2.html")) {
-			String loginPage = contextPath + "index2.html";
+		if (loggedUser == null && !requestURI.startsWith(contextPath + "bower_components/")
+				&& !requestURI.startsWith(contextPath + "app/login.") && !requestURI.endsWith("authc")
+				&& !requestURI.endsWith("login.html")) {
+			String loginPage = contextPath + "login.html";
 			httpResponse.sendRedirect(loginPage);
 		} else {
 			chain.doFilter(request, response);
 		}
 	}
-
 }

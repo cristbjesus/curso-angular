@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Curso de Angular</title>
+
+    <meta charset="UTF-8">
+
+    <script src="bower_components/angular/angular.min.js"></script>
+
+    <!-- build:js app/source-home.min.js -->
+    <script src="app/login.module.js"></script>
+
+    <script src="app/login.controller.js"></script>
+    <!-- /build -->
+</head>
+
+<body data-ng-app="login" data-ng-controller="LoginController as loginCtrl">
+    <form novalidate data-ng-submit="loginCtrl.logar()">
+        <label for="login">Login</label>
+        <input type="text" name="login" ng-model="loginCtrl.user.login">
+
+        <label for="password">Senha</label>
+        <input type="password" name="password" ng-model="loginCtrl.user.password">
+
+        <button type="submit">Logar</button>
+    </form>
+</body>
+
+</html>

@@ -10,13 +10,19 @@
                         <input ng-model="vm.cliente.nome">
                       </md-input-container>
 
+                      <md-input-container class="md-block" flex-gt-xs>
+                        <label>CPF</label>
+                        <input ng-model="vm.cliente.cpf">
+                      </md-input-container>
+
                       <md-input-container>
                         <label>Data de Nascimento</label>
                         <md-datepicker ng-model="vm.cliente.dataNascimento"></md-datepicker>
                       </md-input-container>
                 </div>
 
-                <div layout-gt-xs="row">
+                <div layout-gt-xs="row" layout-wrap>
+                    <md-button md-no-ink class="md-primary" ng-click="vm.irParaPesquisa()">Cancelar</md-button>
                     <md-button type="submit" class="md-raised md-primary">Salvar</md-button>
                 </div>
             </form>
