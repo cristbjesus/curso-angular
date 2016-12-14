@@ -55,7 +55,7 @@
                 min: {
                     src: [
                         'build/app/**/*.js',
-                        '!build/app/**/*.min.js',
+                        '!build/app/**/*.min.js'
                     ]
                 }
             },
@@ -68,6 +68,7 @@
                             'bower_components/**',
                             '!bower_components/angular-mocks/**',
                             '!app/css/style.css',
+                            '!app/css/style.css.map',
                             '!app/less/style.less'
                         ],
                         dest: 'build/'
@@ -121,12 +122,36 @@
             },
             uglify: {
                 app: {
-                    files: [{
-                        expand: true,
-                        src: ['build/app/**/*.js'],
-                        dest: '',
-                        ext: '.min.js'
-                    }]
+                    files: [
+                        {
+                            expand: true,
+                            src: [
+                                'build/app/**/*.js',
+                                '!build/app/**/*.controller.js',
+                                '!build/app/**/*.service.js'
+                            ],
+                            dest: '',
+                            ext: '.min.js'
+                        },
+                        {
+                            expand: true,
+                            src: [
+                                '!build/app/**/*.js',
+                                'build/app/**/*.controller.js'
+                            ],
+                            dest: '',
+                            ext: '.controller.min.js'
+                        },
+                        {
+                            expand: true,
+                            src: [
+                                '!build/app/**/*.js',
+                                'build/app/**/*.service.js'
+                            ],
+                            dest: '',
+                            ext: '.service.min.js'
+                        }
+                    ]
                 }
             },
             cssmin: {

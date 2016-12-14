@@ -15,6 +15,7 @@
         ////////////////
 
         function activate() {
+            var doc = angular.element(document);
             vm.currentNavItem = 'pesquisaClientes';
         }
     }

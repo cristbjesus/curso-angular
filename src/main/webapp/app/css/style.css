@@ -4,7 +4,7 @@ main {
 }
 main.ng-enter {
   /* transition on enter for .5s */
-  transition: 2s;
+  transition: 5s;
   /* start with opacity 0 (invisible) */
   opacity: 0;
 }
